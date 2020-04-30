@@ -7,6 +7,7 @@ int max(int a, int b)
     return b;
 }
 
+// solution 1
 int lengthOfLongestSubstring(char * s){
     if (s == NULL) {
 	return 0;
@@ -42,4 +43,35 @@ int lengthOfLongestSubstring(char * s){
     }
 
     return max_len;
+}
+
+// solution 2
+int lengthOfLongestSubstring(char * s){
+    bool has[256];
+    memset(has, 0, 256);
+
+    int n = strlen(s); 
+    int i, j, result;
+    i = j = result = 0;
+
+    for ( ; ; ++i){
+        while ((j < n) && !has[s[j]]){
+            has[s[j]] = 1;
+            ++j;
+        }
+
+        result = max(result, j - i);
+
+        if (j >= n){
+            break;
+        }
+
+        while (s[i] != s[j]){
+            has[s[i++]] = 0;
+        }
+
+        has[s[i]] = 0;
+    }
+
+    return result;
 }
