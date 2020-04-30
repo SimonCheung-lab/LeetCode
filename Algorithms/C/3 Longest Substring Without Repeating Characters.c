@@ -9,7 +9,7 @@ int max(int a, int b)
 
 int lengthOfLongestSubstring(char * s){
 	if (s == NULL) {
-		return 0;
+	    return 0;
 	}
 	
 	// 256 / 8 = 32
