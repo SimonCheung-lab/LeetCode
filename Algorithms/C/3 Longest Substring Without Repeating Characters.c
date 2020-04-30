@@ -11,11 +11,11 @@ int lengthOfLongestSubstring(char * s){
 	if (s == NULL) {
 		return 0;
 	}
-
+	
 	// 256 / 8 = 32
 	unsigned char has[32];
 	memset(has, 0, 32);
-
+	
 	int n = strlen(s);
 	int i, j, max_len;
 	i = j = max_len = 0;
