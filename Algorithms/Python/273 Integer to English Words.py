@@ -24,6 +24,9 @@ class Solution:
     
     # get english [0, 999]
     def english(self, n, flag):
+        if n == 0:
+            return ''
+        
         result = ''
         less_than_100 = n % 100
         tens = less_than_100 // 10
