@@ -13,8 +13,7 @@ class Solution:
                 return
             
             in_order_traverse(node.left)
-            missing = object()
-            if self.cache.get(k - node.val, missing) != missing:
+            if k - node.val in self.cache:
                 self.result = True
                 return
             else:
