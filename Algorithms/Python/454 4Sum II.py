@@ -39,3 +39,12 @@ class Solution:
             # update i
             i += 1
         return result
+
+    
+# solution 2
+import collections
+
+class Solution:
+    def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
+        a_and_b = collections.Counter([a + b for a in A for b in B])
+        return sum(a_and_b.get(- c - d, 0) for c in C for d in D)    
