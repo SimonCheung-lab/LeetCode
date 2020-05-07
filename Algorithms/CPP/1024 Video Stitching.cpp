@@ -1,7 +1,7 @@
 class Solution {
 public:
     int videoStitching(vector<vector<int>>& clips, int T) {
-        // import
+        // important
         sort(clips.begin(), clips.end(), [](vector<int>& c1, vector<int>& c2){
             return c1[0] < c2[0] || (c1[0] == c2[0] && c1[1] < c2[1]);
         });
