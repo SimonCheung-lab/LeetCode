@@ -1,4 +1,3 @@
-import queue
 class MedianFinder:
 
     def __init__(self):
