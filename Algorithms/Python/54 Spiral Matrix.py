@@ -29,7 +29,7 @@ class Solution:
             row -= 1
             col -= 1
             # turn left
-            while row >= 0 and flag[row][col] == 0:
+            while col >= 0 and flag[row][col] == 0:
                 result.append(matrix[row][col])
                 flag[row][col] = 1
                 col -= 1
@@ -38,7 +38,7 @@ class Solution:
             col += 1
             row -= 1
             # turn up
-            while col >= 0 and flag[row][col] == 0:
+            while row >= 0 and flag[row][col] == 0:
                 result.append(matrix[row][col])
                 flag[row][col] = 1
                 row -= 1
