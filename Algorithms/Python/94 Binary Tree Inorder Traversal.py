@@ -11,10 +11,11 @@ class Solution:
             if node is None:
                 return
             
+            nonlocal result
             inorder(node.left)
-            self.result.append(node.val)
+            result.append(node.val)
             inorder(node.right)
         
-        self.result = []
+        result = []
         inorder(root)
         return self.result
