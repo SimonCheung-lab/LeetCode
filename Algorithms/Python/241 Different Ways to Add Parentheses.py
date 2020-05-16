@@ -1,3 +1,5 @@
+# the key is find the equivalence problem
+# Add Parentheses mean we can divide the expression from any operator
 class Solution:
     def diffWaysToCompute(self, input: str) -> List[int]:
         if input.isdigit():
