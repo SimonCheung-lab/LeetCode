@@ -20,10 +20,11 @@ class Solution:
                 elif op == '/':
                     top = stack.pop()
                     # special
-                    if top < 0:
-                        stack.append(- ((-top) // int(tmp)))
-                    else:
-                        stack.append(top // int(tmp))
+                    stack.append(int(top / float(tmp))
+#                     if top < 0:
+#                         stack.append(- ((-top) // int(tmp)))
+#                     else:
+#                         stack.append(top // int(tmp))
             
             if i < n and s[i] in ['+', '-', '*', '/']:
                 op = s[i]
