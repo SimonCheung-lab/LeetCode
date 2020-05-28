@@ -15,6 +15,8 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// double recursion
 class Solution {
 public:
     bool isSubPath(ListNode* head, TreeNode* root) {
