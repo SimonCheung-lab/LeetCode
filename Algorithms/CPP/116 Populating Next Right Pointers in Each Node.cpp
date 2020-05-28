@@ -47,3 +47,24 @@ public:
         connect(subLevel);
     }
 };
+
+
+# recursion
+class Solution {
+public:
+    Node* connect(Node* root) {
+        if (root == NULL) {
+            return NULL;
+        }
+        Node* left = root->left;
+        Node* right = root->right;
+        while (left && right) {
+            left->next = right;
+            left = left->right;
+            right = right->left;
+        }
+        connect(root->left);
+        connect(root->right);
+        return root;
+    }
+};
