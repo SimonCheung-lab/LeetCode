@@ -36,3 +36,20 @@ class Solution:
         nodes.append(root)
         connect_level(nodes)
         return root
+
+
+# recursion    
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        if root is None:
+            return root
+
+        left, right = root.left, root.right
+        while left and right:
+            left.next = right
+            left = left.right
+            right = right.left
+        
+        self.connect(root.left)
+        self.connect(root.right)
+        return root    
