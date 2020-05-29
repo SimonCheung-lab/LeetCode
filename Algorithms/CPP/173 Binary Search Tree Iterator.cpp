@@ -45,3 +45,35 @@ private:
  * int param_1 = obj->next();
  * bool param_2 = obj->hasNext();
  */
+
+
+// solution 2
+class BSTIterator {
+public:
+    BSTIterator(TreeNode* root) {
+        leftMost(root);
+    }
+    
+    /** @return the next smallest number */
+    int next() {
+        TreeNode* node = stack.top();
+        stack.pop();
+        leftMost(node->right);
+        return node->val;
+    }
+    
+    /** @return whether we have a next smallest number */
+    bool hasNext() {
+        return !stack.empty();
+    }
+
+    void leftMost(TreeNode* node) {
+        while (node) {
+            stack.push(node);
+            node = node->left;
+        }
+    }
+
+private:
+    std::stack<TreeNode*> stack;
+};
