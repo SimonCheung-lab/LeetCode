@@ -33,3 +33,20 @@ class Solution:
 
         self.flip(root.left)
         self.flip(root.right)
+
+        
+class Solution:
+    def flipEquiv(self, root1: TreeNode, root2: TreeNode) -> bool:
+        def preorder(root):
+            if root:
+                yield root.val
+                L = root.left.val if root.left else -1
+                R = root.right.val if root.right else -1
+                if L < R:
+                    yield from preorder(root.left)
+                    yield from preorder(root.right)
+                else:
+                    yield from preorder(root.right)
+                    yield from preorder(root.left)
+
+        return all(x == y for x, y in itertools.zip_longest(preorder(root1), preorder(root2)))        
