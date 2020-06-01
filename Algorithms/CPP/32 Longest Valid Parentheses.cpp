@@ -47,3 +47,48 @@ public:
         return ans;
     }
 };
+
+
+// solution 3, space cost O(1)
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int ans = 0;
+        int left, right;
+        left = right = 0;
+        // from left to right
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '(') {
+                ++left;
+            }
+            else if (s[i] == ')') {
+                ++right;
+                if (right == left) {
+                    ans = max(ans, left + right);
+                }
+                else if (right > left) {
+                    left = right = 0;
+                }
+            }
+        }
+
+        left = right = 0;
+        // from right to left
+        for (int i = s.size() - 1; i >= 0; --i) {
+            if (s[i] == ')') {
+                ++right;
+            }
+            else if (s[i] == '(') {
+                ++left;
+                if (left == right) {
+                    ans = max(ans, left + right);
+                }
+                else if (left > right) {
+                    left = right = 0;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
