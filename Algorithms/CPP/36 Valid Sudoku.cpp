@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        vector<vector<bool>> rows(9, vector<bool>(10, false));
-        vector<vector<bool>> columns(9, vector<bool>(10, false));
-        vector<vector<bool>> subboxes(9, vector<bool>(10, false));
+        bool rows[9][10] = {false};
+        bool columns[9][10] = {false};
+        bool subboxes[9][10] = {false};
 
         int n, boxIndex;
         for (int i = 0; i < 9; ++i) {
