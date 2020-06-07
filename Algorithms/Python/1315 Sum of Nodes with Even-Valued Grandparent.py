@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+# O(n)
 class Solution:
     def sumEvenGrandparent(self, root: TreeNode) -> int:
         def dfs(node):
