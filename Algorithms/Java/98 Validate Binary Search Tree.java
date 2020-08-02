@@ -8,35 +8,23 @@
  * }
  */
 class Solution {
-    private TreeNode preNode = null;
-    private boolean valid = true;
-
     public boolean isValidBST(TreeNode root) {
-        this.valid = true;
-        inOrder(root);
-        return this.valid;
+        return helper(root, null, null);
     }
 
-    private void inOrder(TreeNode node) {
-        if (node == null) {
-            return;
+    private boolean helper(TreeNode root, Integer min, Integer max) {
+        if (root == null) {
+            return true;
         }
 
-        inOrder(node.left);
-
-        if (preNode == null) {
-            preNode = node;
-        }
-        else {
-            if (preNode.val >= node.val) {
-                this.valid = false;
-                return;
-            }
-            else {
-                preNode = node;
-            }
+        if (max != null && root.val >= max) {
+            return false;
         }
 
-        inOrder(node.right);
+        if (min != null && root.val <= min) {
+            return false;
+        }
+
+        return helper(root.left, min, root.val) && helper(root.right, root.val, max);
     }
 }
