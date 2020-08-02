@@ -7,28 +7,21 @@
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        def inorder(node):
+        def inOrder(node):
             nonlocal preNode
-            nonlocal valid
-            
-            if node is None:
-                return
-            
-            inorder(node.left)
 
-            if preNode is None:
-                preNode = node
-            else:
-                if preNode.val >= node.val:
-                    valid = False
-                    return
-                else:
-                    preNode = node
-        
-            inorder(node.right)
+            if node is None:
+                return True
+
+            if not inOrder(node.left):
+                return False
+            
+            if preNode and preNode.val >= node.val:
+                return False
+            
+            preNode = node
+            return inOrder(node.right)
 
         preNode = None
-        valid = True
-        inorder(root)
 
-        return valid
+        return inOrder(root)
