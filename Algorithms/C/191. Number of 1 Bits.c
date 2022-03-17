@@ -12,3 +12,15 @@ int hammingWeight(uint32_t n) {
         }
         return count;
 }
+
+// method 2
+int hammingWeight(uint32_t n) {
+    int count = 0;
+    while (n)
+    {
+        // remove one bit
+        n = n & (n - 1);
+        count++;
+    }
+    return count;
+}
